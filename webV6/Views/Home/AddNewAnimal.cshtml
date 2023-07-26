@@ -1,0 +1,63 @@
+﻿@model webV6.Models.Animal
+@{
+    ViewBag.Title = "AddNewAnimal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/styles/addAnimal.css" rel="stylesheet" />
+}
+
+<div class="container-div">
+    <div class="data-div">
+        <form asp-action="AddNewAnimal" method="post" enctype="multipart/form-data">
+
+            <p class="add-animal-text">Add animal</p>
+
+            <div class="div-name">
+                Name: 
+                <input asp-for="AnimalName" class="animal-name" name="AnimalName" type="text" maxlength="14"/>
+@*                <input class="animal-name" name="AnimalName" type="text" />*@
+                <span asp-validation-for="AnimalName"></span>
+            </div>
+
+            <div class="div-age">
+                Age:
+                <input asp-for="Age" class="animal-age" name="Age" type="number" />
+@*                <input class="animal-age" name="Age" type="number" />*@
+                <span asp-validation-for="Age"></span>
+            </div>
+
+            <div class="div-description">
+                <p>Description:</p>
+                <textarea asp-for="Description" class="animal-description" name="Description" rows="3" cols="10" maxlength="250"> </textarea>
+@*                <textarea class="animal-description" name="Description" rows="3" cols="10"> </textarea>*@
+                <span asp-validation-for="Description"></span>
+            </div>
+
+            <div class="div-category">
+                Category:
+                <select asp-for="CategoryId" class="categorySelect" name="CategoryId">
+                    <option hidden class="categoryOption" value="">Choose Category</option>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option class="categoryOption" id="category_option" value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+
+            <div class="div-file">
+                Upload File:
+                <input asp-for="PictureName" class="animal-file" type="file" name="file" required onclick="removeValidation()" />
+                <span class="file_validation"></span>
+            </div> 
+
+
+            <div class="div-add-btn">
+                <input class="categorySubmit" type="submit" value="ADD" onclick="fileValidation()" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+

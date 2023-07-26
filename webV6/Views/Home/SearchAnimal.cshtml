@@ -1,0 +1,52 @@
+﻿@model webV6.Models.Animal
+@{
+    ViewBag.Title = "SearchAnimal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/styles/administrator.css?version=1" rel="stylesheet" />
+}
+
+<div class="category_container">
+    <form asp-action="AdministratorPage" class="formCategory" method="post" enctype="multipart/form-data">
+        <select class="categorySelect" name="id" onchange="chosenCategoryForAdmin()">
+            <option hidden class="categoryOption" id="category_option">Choose Category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option class="categoryOption" id="category_option" value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+
+        <a asp-action="AddNewAnimal">Add new animal</a>
+    </form>
+
+    <form asp-action="SearchAnimal" class="formSearch" method="post" enctype="multipart/form-data">
+        <input class="input-animalName" name="AnimalName" type="text" maxlength="14" placeholder="Search animal" />
+        <input class="submit-animalName" type="submit" value="Search" />
+    </form>
+
+</div>
+
+@if(Model != null)
+{
+    <div class="animal_container">
+        <div class="allDetails">
+            <img class="animalImg" src="~/animal images/@Model.PictureName" alt="animal img" />
+
+            <div class="textDetails">
+                <p class="animalName">@Model.AnimalName</p>
+                <p>Category: @Model.Category.CategoryName, Age: @Model.Age</p>
+                <p>Description: @Model.Description</p>
+                <p class="p_btns">
+                    <a asp-action="EditAnimal" asp-route-id="@Model.AnimalId">Edit</a>
+                    <a asp-action="DeleteAnimal" asp-route-id="@Model.AnimalId">Delete</a>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="not-found-div">Animal Not found</div>
+}
+
+
+

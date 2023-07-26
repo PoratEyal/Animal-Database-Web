@@ -1,0 +1,54 @@
+﻿@model IEnumerable<webV6.Models.Animal>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomePage</title>
+    <script src="~/scripts/Script.js"></script>
+    <link href="~/styles/styleSheet.css?version=2" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+@*            <li><img class="imgLogo" src="~/logo4.png" alt="img logo"/></li>*@
+            <li><button class="homeBtn" type="button">Home</button></li>
+            <li><button class="catalogBtn" type="button">Catalog</button></li>
+            <li><button class="administratorBtn" type="button">Administrator</button></li>
+            @if (@User.Identity!.IsAuthenticated == false)
+            {
+                <a asp-action="Login" class="login-btn" asp-controller="Account">Log in</a>
+            }
+            else
+            {
+                <a asp-action="Logout" class="logout-btn"  asp-controller="Account">Log Out</a>
+            }
+        </ul>
+    </nav>
+    
+
+    <div class="animal_container">
+        @foreach(var animal in Model)
+        {
+            <div>
+                <div class="animal_show">
+                    <div class="img-container">
+                        <img src="~/animal images/@animal.PictureName" alt="animal picture" width="80" height="80" />
+                    </div>
+                    <object class="divText">
+                        <p class="animal_P_name">@animal.AnimalName, comments: @animal.AnimalComments?.Count</p>
+                        <p>@animal.Description</p>
+                    </object>
+                </div>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

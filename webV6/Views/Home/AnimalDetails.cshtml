@@ -1,0 +1,47 @@
+﻿@model IEnumerable<webV6.Models.Comment>
+@{
+    ViewBag.Title = "AnimalDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/styles/detailsStyle.css?version=1" rel="stylesheet" />
+}
+
+
+<div class="marginDiv">
+    <div class="allDetails">
+
+        <img class="animalImg" src="~/animal images/@ViewBag.animal.PictureName" alt="animal img" />
+        
+        <div class="textDetails">
+            <p class="p_details">Details:</p>
+
+            <p>Animal name: @ViewBag.animal.AnimalName</p>
+            <p>Category: @ViewBag.animal.Category.CategoryName</p>
+            <p>Age: @ViewBag.animal.Age</p>
+            <p>Description: @ViewBag.animal.Description</p>
+        </div>
+
+        <div class="animalCommennt_container">
+            <div class="comments-div">
+                <p class="p_comments">Comments:</p>
+                @foreach (var comment in Model)
+                {
+                    if (ViewBag.animal.AnimalId == comment.AnimalId)
+                    {
+                        <div> • @comment.CommentText</div>
+                    }
+                }
+            </div>
+
+            <div class="addComment-div">
+                <form class="form_comments" asp-action="AnimalDetails" method="post" enctype="multipart/form-data">
+                    Add comment:
+                    <input class="comment-txt" type="text" name="CommentText" maxlength="40" />
+                    <input class="submitBtn" type="submit" value="Add" />
+                    <div class="validation_comment" asp-validation-summary="All"></div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

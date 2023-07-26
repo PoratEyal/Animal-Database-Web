@@ -1,0 +1,67 @@
+﻿@model IEnumerable<webV6.Models.Animal>
+@{
+    ViewBag.Title = "CatalogPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/styles/catalog.css?version=1" rel="stylesheet" />
+}
+<div class="body-container">
+    <div class="category_container">
+        <form asp-action="CatalogPage" class="formCategory" method="post" enctype="multipart/form-data">
+            <select class="categorySelect" name="id" onchange="chosenCategory()">
+            <option hidden class="categoryOption" id="category_option">Choose Category</option>
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <option class="categoryOption" id="category_option" value="@category.CategoryId">@category.CategoryName</option>
+                }
+            </select>
+        </form>
+    </div>
+
+
+    <div class="animal_container">
+        @if (ViewBag.animalsByCategory != null)
+        {
+            @foreach (var animal in ViewBag.animalsByCategory)
+            {
+                <div class="animal_show">
+                    <div class="img-container">
+                        <img src="~/animal images/@animal.PictureName" alt="animal picture" width="80" height="80" />
+                    </div>
+                    <object class="divText">
+                        <p class="animal_P_name">
+                            @animal.AnimalName
+                                <a asp-action="AnimalDetails" asp-route-id="@animal.AnimalId">
+                                    More details
+                                </a>
+                        </p>
+                    </object>
+                </div>
+            }
+        }
+        else
+        {
+            @foreach (var animal in Model)
+            {
+                <div class="animal_show">
+                    <div class="img-container">
+                        <img src="~/animal images/@animal.PictureName" alt="animal picture" width="80" height="80" />
+                    </div>
+                    <object class="divText">
+                        <p class="animal_P_name">
+                            @animal.AnimalName
+                            <a asp-action="AnimalDetails" asp-route-id="@animal.AnimalId">
+                                More details
+                            </a>
+                        </p>
+                    </object>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+
+
+
+
+

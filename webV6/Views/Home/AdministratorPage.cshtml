@@ -1,0 +1,67 @@
+﻿@model IEnumerable<webV6.Models.Animal>
+@{
+    ViewBag.Title = "AdministratorPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/styles/administrator.css?version=1" rel="stylesheet" />
+}
+<div class="category_container">
+    <form asp-action="AdministratorPage" class="formCategory" method="post" enctype="multipart/form-data">
+        <select class="categorySelect" name="id" onchange="chosenCategoryForAdmin()">
+            <option hidden class="categoryOption" id="category_option">Choose Category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option class="categoryOption" id="category_option" value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+
+        <a asp-action="AddNewAnimal">Add new animal</a>
+    </form>
+
+    <form asp-action="SearchAnimal" class="formSearch" method="post" enctype="multipart/form-data">
+        <input class="input-animalName" name="AnimalName" type="text" maxlength="17" placeholder="Search animal" />
+        <input type="submit" value="Search" class="submit-animalName" />
+    </form>
+
+
+</div>
+
+<div class="animal_container">
+    @if (ViewBag.animalsByCategory != null)
+    {
+        @foreach (var animal in ViewBag.animalsByCategory)
+        {
+            <div class="allDetails">
+                <img class="animalImg" src="~/animal images/@animal.PictureName" alt="animal img"/>
+
+                <div class="textDetails">
+                    <p class="animalName">@animal.AnimalName</p>
+                    <p>Category: @animal.Category.CategoryName, Age: @animal.Age</p>
+                    <p>Description: @animal.Description</p>
+                    <p class="p_btns">
+                        <a asp-action="EditAnimal" asp-route-id="@animal.AnimalId">Edit</a>
+                        <a asp-action="DeleteAnimal" asp-route-id="@animal.AnimalId">Delete</a>
+                    </p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        @foreach (var animal in Model)
+        {
+            <div class="allDetails">
+                <img class="animalImg" src="~/animal images/@animal.PictureName" alt="animal img" />
+
+                <div class="textDetails">
+                    <p class="animalName">@animal.AnimalName</p>
+                    <p>Category: @animal.Category.CategoryName, Age: @animal.Age</p>
+                    <p>Description: @animal.Description</p>
+                    <p class="p_btns">
+                        <a asp-action="EditAnimal" asp-route-id="@animal.AnimalId">Edit</a>
+                        <a asp-action="DeleteAnimal" asp-route-id="@animal.AnimalId">Delete</a>
+                    </p>
+                </div>
+            </div>
+        }
+    }
+</div>

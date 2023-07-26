@@ -1,0 +1,206 @@
+﻿body {
+    background-image: linear-gradient(to right,#00a2915b, #fbfbfb, #00a2915b);
+    background-repeat: round;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul {
+    /*    background-color: rgba(0, 0, 0, 0);*/
+    border-radius: 15px;
+    display: flex;
+    margin-bottom: 30px;
+    background-color: white;
+    margin-top: -15px;
+    margin-left: 20px;
+    width: 2500px;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, .1);
+    background: rgb(255, 255, 255, 0.50);
+}
+
+nav li {
+    display: flex;
+    margin-right: 27px;
+    margin-top: 27px;
+    margin-bottom: 20px;
+}
+/*nav img {
+    width: 80px;
+    height: 70px;
+    transition: transform 0.3s ease-in-out;
+    
+}
+    nav img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }*/
+nav button {
+    background-color: rgba(0, 0, 0, .0);
+    border: hidden;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: transform 0.3s ease-in-out;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    color: #00352fff;
+}
+
+    nav button:hover {
+        cursor: pointer;
+        color: #004a41ff;
+    }
+
+ul a {
+    margin-bottom: 24px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+    ul a:hover {
+        background-image: linear-gradient(#24c372, #008c7de6);
+    }
+
+
+
+
+.marginDiv {
+    margin-top: -20px;
+}
+.allDetails {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 36px 15px 0 rgba(0,0,0,0.24), 0 4px 90px 0 rgba(0,0,0,0.19);
+}
+.animalImg {
+    border-radius: 25px;
+    width: 290px;
+    height: 310px;
+    padding: 15px;
+}
+.textDetails {
+    background-color: aqua;
+    background-color: rgba(0, 0, 0, .10);
+    border-radius: 20px;
+    width: 400px;
+    height: 280px;
+    font-size: 18px;
+    padding: 15px;
+    text-align: left;
+    margin: 15px;
+}
+.p_details {
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+/*.animalCommennt_container {
+    background-color: aqua;
+    background-color: rgba(0, 0, 0, .10);
+    border-radius: 20px;
+    width: 340px;
+    height: 290px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: left;
+    margin: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-border-radius: 5px;
+    border-radius: 7px;
+}*/
+
+
+.comments-div {
+    background-color: aqua;
+    background-color: rgba(0, 0, 0, .10);
+    border-radius: 20px;
+    width: 340px;
+    height: 208px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: left;
+    margin: 15px;
+    overflow: scroll;
+    -webkit-border-radius: 5px;
+    border-radius: 7px;
+}
+    .p_comments {
+        margin: auto;
+        margin-bottom: 0px;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+
+.addComment-div {
+    background-color: aqua;
+    background-color: rgba(0, 0, 0, .10);
+    border-radius: 20px;
+    width: auto;
+    height: 45px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: left;
+    margin: 15px;
+    -webkit-border-radius: 5px;
+    border-radius: 7px;
+}
+/*.form_comments {
+    margin: auto;
+    font-size: 18px;
+}*/
+
+form input {
+    width: 160px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    padding: 2px;
+}
+
+.submitBtn {
+    background-image: linear-gradient(#2be586, #00a291e6);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px;
+    text-align: left;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: 0px solid rgba(0, 0, 0, .1);
+    font-weight: bold;
+    margin-left: 10px;
+    width: 40px;
+}
+    .submitBtn:hover {
+        background-image: linear-gradient(#24c372, #008c7de6);
+        cursor: pointer;
+    }
+
+.validation_comment {
+    margin-left: -40px;
+    margin-top: -17px;
+    color: #ff392ff1;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+    .validation_comment ul {
+        list-style-type: none;
+    }
+
+
+
+

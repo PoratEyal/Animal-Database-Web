@@ -1,0 +1,28 @@
+﻿@model webV6.Models.LoginModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <script src="~/scripts/Script.js"></script>
+    <link href="~/styles/Register.css" rel="stylesheet" />
+}
+
+<div class="container_div">
+
+    <form method="post" asp-action="Register">
+        <label>Register</label>
+        <label class="textLabel">Let's get started</label>
+        <div>
+            <input asp-for="Username" placeholder="Username" />
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div>
+            <input asp-for="Password" type="password" placeholder="Password"/>
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <input class="registerBtn" type="submit" value="Register" />
+
+        <div><a class="login-btn" asp-action="Login">Sign In</a></div>
+    </form>
+</div>
+

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/scripts/Script.js"></script>
+
+	<script src="~/lib/jquery/jquery.js"></script>
+	<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+@*            <li><img class="imgLogo" src="~/logo4.png" alt="img logo"/></li>*@
+            <li><button class="homeBtn" type="button">Home</button></li>
+            <li><button class="catalogBtn" type="button">Catalog</button></li>
+            <li><button class="administratorBtn" type="button">Administrator</button></li>
+        </ul>
+    </nav>
+    @RenderBody()
+
+</body>
+</html>
