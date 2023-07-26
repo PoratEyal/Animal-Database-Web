@@ -51,5 +51,7 @@ Once the Animal Database Web is up and running, you can access the different pag
 
 The Pet Shop Application is released under the [MIT License](LICENSE). Feel free to use, modify, and distribute the application according to the terms of the license.
 
+##
+
 https://github.com/PoratEyal/Animal-Database-Web/assets/134833213/cdf165e9-ab9d-4aa0-863f-42c9553c8e7f
 
